@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Fashion Man - About</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="./commonLayout.xhtml">
+            <ui:define name="content">
+                <section class="breadcrumb-wrapper">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <h2>Fashion Man</h2>
+                                <p>About Shop</p>
+                            </div>
+                            <div class="col-xs-6">
+                                <ol class="breadcrumb">
+                                    <li><h:link outcome="index" value="Home"/></li>
+                                    <li class="active">About Shop</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="content eshop">
+                    <div class="container">
+                        <div class="default-style about">
+                            <h2>Who are Fashion Man?</h2>
+                            <div class="row">
+                                <div class="col-sm-7 col-md-6 text-justify">
+                                    <p>We started in 2006 and haven't stopped smashing it since. A global brand that does not sleep, we're 24/7 and always bringing something new with over 100 new products dropping on the daily, bringing you the latest looks for less.</p>
+                                    <p>Fashion Man recognizes individuality. We see you. We embrace it. We make fashion accessible and fun. Fashion Man is for girls. All girls.</p>
+                                    <h2>OUR PHILOSOPHY</h2>
+                                    <p>Our philosophy's pretty simple: we don't take fashion or life too seriously.</p>
+                                    <p>From over 4 million fans on social and an online magazine, we're the dress you need at the weekend, and the moments you need when you're down.</p>
+                                    <h2>OUR CHARITY STRATEGY</h2>
+                                    <p>We all know that it's better to give than to receive, that's why we have set up Fashion Man's charity programmer to raise money and awareness for causes close to our hearts.</p>
+                                </div>
+                                <div class="col-sm-5 col-md-6">
+                                    <h:graphicImage name="images/slide-3.jpg" class="img-responsive" alt=""/>
+                                </div>
+                            </div>
+                            <div class="icon-nav row">
+<!--                                <div class="col-xs-6 col-sm-4">
+                                    <h:link outcome="stores">
+                                        <f:param name="selectedCity" value="Ho Chi Minh" />
+                                        <i class="fa fa-map-marker"></i> Our Stores
+                                    </h:link>-->
+                                </div>
+                                <div class="col-xs-6 col-sm-4">
+                                    <h:link outcome="privacy-policy">
+                                        <i class="fa fa-lock"></i> Privacy Policy
+                                    </h:link>
+                                </div>
+                                <div class="col-xs-6 col-sm-4">
+                                    <h:link outcome="terms-conditions">
+                                        <i class="fa fa-book"></i> Terms &amp; Conditions
+                                    </h:link>
+                                </div>
+                            </div>
+                        </div>
+<!--                    </div>-->
+                </section>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+
+
