@@ -1,0 +1,143 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Update Store</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="../Admin/adminLayout.xhtml">
+
+
+            <ui:define name="breadcum">
+                <h2>Stores</h2>
+                <ol class="breadcrumb">
+                    <li><h:link outcome="storesView" value="Stores"/></li>
+                    <li class="active"><strong>Update</strong></li>
+                </ol>
+            </ui:define>
+
+
+            <ui:define name="content">
+                <div class="wrapper wrapper-content">
+                    <h:form enctype="multipart/form-data" id="profileForm">
+                        <div class="panel panel-default col-lg-12 col-lg-offset-0 animated fadeInRightBig">
+                            <div class="panel-heading">
+                                <h1 class="text-primary"><h:outputText value="Edit Store"/></h1>
+                            </div>
+                            <div class="panel-body">
+                                <div class="col-lg-5">
+                                    <dl class="row">
+                                        <dt class="col-lg-3">ID</dt>
+                                        <dd class="col-lg-9">
+                                            <h:inputText value="#{adminStoresController.selectedStore.storeID}" class="form-control" readonly="true"/>
+                                        </dd>                            
+                                    </dl>
+
+                                    <dl class="row">
+                                        <dt class="col-lg-3">Name *</dt>
+                                        <dd class="col-lg-9">
+                                            <h:inputText value="#{adminStoresController.selectedStore.storeName}" class="form-control" validatorMessage="Name can not be blank.">
+                                                <f:validator validatorId="requireValidator"/>
+                                            </h:inputText>
+                                        </dd>                            
+                                    </dl>  
+
+                                    <dl class="row">
+                                        <dt class="col-lg-3">Longitude *</dt>
+                                        <dd class="col-lg-9">
+                                            <h:inputText value="#{adminStoresController.selectedStore.longitude}" class="form-control" validatorMessage="Longitude can not be blank.">
+                                                <f:validator validatorId="requireValidator"/>
+                                            </h:inputText>
+                                        </dd>                            
+                                    </dl>
+                                    
+                                    <dl class="row">
+                                        <dt class="col-lg-3">Latitude *</dt>
+                                        <dd class="col-lg-9">
+                                            <h:inputText value="#{adminStoresController.selectedStore.latitude}" class="form-control" validatorMessage="Latitude can not be blank.">
+                                                <f:validator validatorId="requireValidator"/>
+                                            </h:inputText>
+                                        </dd>                            
+                                    </dl>
+                                    
+                                    <dl class="row">
+                                        <dt class="col-lg-3">Address *</dt>
+                                        <dd class="col-lg-9">
+                                            <h:inputText value="#{adminStoresController.selectedStore.storeAddress}" class="form-control" validatorMessage="Address can not be blank.">
+                                                <f:validator validatorId="requireValidator"/>
+                                            </h:inputText>
+                                        </dd>                            
+                                    </dl>  
+                                    
+                                    <dl class="row">
+                                        <dt class="col-lg-3">City</dt>
+                                        <dd class="col-lg-9">
+                                            <h:selectOneMenu value="#{adminStoresController.selectedStore.city}" class="form-control">
+                                                <f:selectItem itemValue="Ho Chi Minh" itemLabel="Ho Chi Minh" />
+                                                <f:selectItem itemValue="Da Nang" itemLabel="Da Nang" />
+                                                <f:selectItem itemValue="Nha Trang" itemLabel="Nha Trang" />
+                                                <f:selectItem itemValue="Ha Noi" itemLabel="Ha Noi" />
+                                            </h:selectOneMenu>
+                                        </dd>   
+                                    </dl> 
+                                </div>
+
+                                <div class="col-lg-7">
+                                    <dl class="row">
+                                        <dt class="col-lg-3">Contact Person *</dt>
+                                        <dd class="col-lg-9">
+                                            <h:inputText value="#{adminStoresController.selectedStore.contactPerson}" class="form-control" validatorMessage="Contact Person can not be blank.">
+                                                <f:validator validatorId="requireValidator"/>
+                                            </h:inputText>
+                                        </dd>                            
+                                    </dl>   
+                                    
+                                    <dl class="row">
+                                        <dt class="col-lg-3">Phone *</dt>
+                                        <dd class="col-lg-9">
+                                            <h:inputText value="#{adminStoresController.selectedStore.phone}" class="form-control" validatorMessage="Phone can not be blank.">
+                                                <f:validator validatorId="requireValidator"/>
+                                            </h:inputText>
+                                        </dd>                            
+                                    </dl>   
+                                    
+                                    <dl class="row">
+                                        <dt class="col-lg-3">Images *</dt>
+                                        <dd class="col-lg-9">
+                                            <img src="../resources/#{adminStoresController.selectedStore.storeImages}" alt="" width="120" height="80" id="avatar"/>
+                                        <a href="" class="btn btn-primary pull-right" id="changeAvatar">Change</a>
+                                        </dd>                            
+                                    </dl>
+                                    
+                                    <dl class="row">
+                                        <dt class="col-lg-3">Description *</dt>
+                                        <dd class="col-lg-9">
+                                            <h:inputTextarea rows="3" value="#{adminStoresController.selectedStore.descriptions}" class="form-control" validatorMessage="Description can not be blank.">
+                                                <f:validator validatorId="requireValidator"/>
+                                            </h:inputTextarea>
+                                        </dd>                            
+                                    </dl>                                     
+                                </div>
+                            </div>
+                            
+                            <h:messages class="alert-danger"/>
+                            
+                            <div class="panel-footer">
+                                <h:commandButton value="Update" action="#{adminStoresController.update()}" class="btn btn-success"/>
+                            </div>
+                            <h:inputFile id="chooseAvatarFile" value="#{adminStoresController.image}" style="opacity: 0; position: absolute; top: 0; left: 0; width: 0; height: 0;">
+                                <f:validator validatorId="changeAvatarValidator"/>
+                            </h:inputFile>
+                        </div>
+                    </h:form>
+                </div>
+            </ui:define>
+
+
+        </ui:composition>
+    </h:body>
+</html>
+

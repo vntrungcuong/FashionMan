@@ -1,0 +1,273 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Fashion Man - Index</title>
+        <h:outputStylesheet name="css/jsfcrud.css"/>
+    </h:head>
+    <h:body>
+        <ui:composition template="./commonLayout.xhtml">
+            <ui:define name="content">
+
+                <section class="content jumbotron">
+                    <div id="homepage-1-carousel" class="nav-inside owl-animation">
+                        <div class="item slide-1">
+                            <div class="slide-mask"></div>
+                            <div class="slide-body">
+                                <div class="container">
+                                    <i class="fa fa-paper-plane animation top-to-bottom delay-1 slow"></i>
+                                    <h1 class="animation top-to-bottom slow">Welcome</h1>
+                                    <p class="animation bottom-to-top slow">Quality • Modern • Fashion </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item slide-2">
+                            <div class="slide-mask"></div>
+                            <div class="slide-body">
+                                <div class="container">
+                                    <h1 class="border animation top-to-bottom">The <b>easiest</b> way to shop</h1>
+                                    <ul class="list-unstyled">
+                                        <li class="animation left-to-right delay-1"><i class="fa fa-check"></i> An Established Product</li>
+                                        <li class="animation left-to-right delay-2"><i class="fa fa-check"></i> True Premium Quality</li>
+                                        <li class="animation left-to-right delay-3"><i class="fa fa-check"></i> Dedicated Support</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item slide-3">
+                            <div class="slide-mask"></div>
+                            <div class="slide-body">
+                                <div class="container">
+                                    <h1 class="animation right-to-left fast">SALE UP TO 10% OFF</h1>
+                                    <p class="animation right-to-left delay-1 fast">APPLY FOR ALL PRODUCTS</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="content grid-products border-top">                        
+                    <div class="container">
+                        <c:if test="#{not empty productController.recommendedProducts}">
+                            <h2>Suggested Products</h2>
+                            <div class="row">                            
+                                <c:forEach items="#{productController.recommendedProducts}" begin="0" end="1" step="1" var="item">
+                                    <div class="col-xs-6 col-sm-3">
+                                        <article class="product-item">
+                                            <h:graphicImage name='images/Products/#{item.productImages.split(";")[0]}' class="img-responsive" alt=""/>
+                                            <h3>
+                                                <h:link outcome="singleProduct" value="#{item.productName}">
+                                                    <f:param name="productID" value="#{item.productID}"/>
+                                                </h:link>
+                                            </h3>
+                                            <div class="product-rating">
+                                                <c:forEach begin="1" end="#{averageRatingController.getAverageRating(item.productID).intValue()}">
+                                                    <i class="fa fa-star"></i>
+                                                </c:forEach>
+                                            </div>
+                                            <span class="price">
+                                                <del><span class="amount">$#{item.price}.00</span></del>
+                                                <ins>
+                                                    $<h:outputText value="#{item.price*0.9}" class="amount">
+                                                        <f:convertNumber pattern="#0.00" />
+                                                    </h:outputText>
+                                                </ins>
+                                            </span>
+                                        </article>
+                                    </div>
+                                </c:forEach>
+
+                                <div class="col-xs-12 col-sm-3">
+                                    <ul class="list-unstyled small-product">
+                                        <c:forEach items="#{productController.recommendedProducts}" begin="2" end="5" step="1" var="item">
+                                            <li class="clearfix">                                                
+                                                <h:link outcome="singleProduct">
+                                                    <f:param name="productID" value="#{item.productID}"/>
+                                                    <h:graphicImage name='images/Products/#{item.productImages.split(";")[0]}' class="img-responsive" alt=""/>
+                                                    <h3>#{item.productName}</h3>
+                                                </h:link>                                            
+                                                <div class="product-rating">
+                                                    <c:forEach begin="1" end="#{averageRatingController.getAverageRating(item.productID).intValue()}">
+                                                        <i class="fa fa-star"></i>
+                                                    </c:forEach>
+                                                </div>
+                                                <span class="price">
+                                                    <del><span class="amount">$#{item.price}.00</span></del>
+                                                    <ins>
+                                                        $<h:outputText value="#{item.price*0.9}" class="amount">
+                                                            <f:convertNumber pattern="#0.00" />
+                                                        </h:outputText>
+                                                    </ins>
+                                                </span>
+                                            </li>
+                                        </c:forEach>
+                                    </ul>
+                                </div>
+
+                                <div class="col-xs-12 col-sm-3">
+                                    <ul class="list-unstyled small-product">
+                                        <c:forEach items="#{productController.recommendedProducts}" begin="6" end="9" step="1" var="item">
+                                            <li class="clearfix">
+                                                <h:link outcome="singleProduct">
+                                                    <f:param name="productID" value="#{item.productID}"/>
+                                                    <h:graphicImage name='images/Products/#{item.productImages.split(";")[0]}' class="img-responsive" alt=""/>
+                                                    <h3>#{item.productName}</h3>
+                                                </h:link>               
+                                                <div class="product-rating">
+                                                    <c:forEach begin="1" end="#{averageRatingController.getAverageRating(item.productID).intValue()}">
+                                                        <i class="fa fa-star"></i>
+                                                    </c:forEach>
+                                                </div>
+                                                <span class="price">
+                                                    <del><span class="amount">$#{item.price}.00</span></del>
+                                                    <ins>
+                                                        $<h:outputText value="#{item.price*0.9}" class="amount">
+                                                            <f:convertNumber pattern="#0.00" />
+                                                        </h:outputText>
+                                                    </ins>
+                                                </span>
+                                            </li>
+                                        </c:forEach>
+                                    </ul>
+                                </div>                                                     
+                            </div>  
+                        </c:if>                             
+                    </div>                        
+                </section>                     
+
+                <section class="content categories">
+                    <div class="row row-no-padding">                        
+                        <c:forEach items="#{categoryController.categories}" var="item">
+                            <div class="col-xs-#{categoryController.col_width}">
+                                <div class="category">
+                                    <h:link outcome="products">
+                                        <f:param name="categoryID" value="#{item.categoryID}"/>
+                                        <f:param name="typeID" value="all"/>
+                                        <f:param name="page" value="1"/>
+                                        <f:param name="pageSize" value="6"/>
+                                        <h:graphicImage name="#{item.categoryImage}" class="img-responsive" alt="#{item.categoryName}"/>
+                                        <div class="category-mask"></div>
+                                        <h3 class="category-title">#{item.categoryName} <span>Collection</span></h3>
+                                    </h:link>
+                                </div>
+                            </div>
+                        </c:forEach>
+                    </div>
+                </section>
+
+                <section class="content brands pattern border-top border-bottom">
+                    <div class="container">
+                        <div id="brands-carousel">
+                            <c:forEach items="#{brandController.getBrands()}" var="brand">
+                                <div class="item">
+                                    <h:link outcome="products">
+                                        <f:param name="brandID" value="#{brand.brandID}"/>
+                                        <f:param name="page" value="1"/>
+                                        <f:param name="pageSize" value="6"/>
+                                        <h:graphicImage name="#{brand.brandImages}" class="img-responsive" alt="#{brand.brandName}"/>
+                                    </h:link>
+                                </div>
+                            </c:forEach>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="content small-products">
+                    <div class="container">
+                        <div class="row">
+
+                            <div class="col-sm-6">
+                                <h2>New Products</h2>
+                                <ul class="list-unstyled small-product">                                    
+                                    <c:forEach items='#{productController.getFeaturedProducts("New")}' var="item">
+                                        <li class="clearfix">
+                                            <h:link outcome="singleProduct">
+                                                <f:param name="productID" value="#{item.productID}"/>
+                                                <h:graphicImage name='images/Products/#{item.productImages.split(";")[0]}' class="img-responsive" alt=""/>
+                                                <h3>#{item.productName}</h3>
+                                            </h:link>      
+                                            <span class="price">
+                                                <del><span class="amount">$#{item.price}.00</span></del>
+                                                <ins>
+                                                    $<h:outputText value="#{item.price*0.9}" class="amount">
+                                                        <f:convertNumber pattern="#0.00" />
+                                                    </h:outputText>
+                                                </ins>
+                                            </span>
+                                        </li>
+                                    </c:forEach>
+                                </ul>
+                            </div>                            
+
+                            <div class="col-sm-6">
+                                <h2>Hot Products</h2>
+                                <ul class="list-unstyled small-product">                                    
+                                    <c:forEach items='#{productController.getFeaturedProducts("Hot")}' var="item">
+                                        <li class="clearfix">
+                                            <h:link outcome="singleProduct">
+                                                <f:param name="productID" value="#{item.productID}"/>
+                                                <h:graphicImage name='images/Products/#{item.productImages.split(";")[0]}' class="img-responsive" alt=""/>
+                                                <h3>#{item.productName}</h3>
+                                            </h:link> 
+                                            <span class="price">
+                                                <del><span class="amount">$#{item.price}.00</span></del>
+                                                <ins>
+                                                    $<h:outputText value="#{item.price*0.9}" class="amount">
+                                                        <f:convertNumber pattern="#0.00" />
+                                                    </h:outputText>
+                                                </ins>
+                                            </span>
+                                        </li>
+                                    </c:forEach>
+                                </ul>
+                            </div>                            
+
+                        </div>
+                    </div>
+                </section>                
+
+<!--                <section class="content our-stores">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-10 col-lg-8">
+                                <h2>
+                                    Let's check our stores 
+                                    <h:link outcome="stores" value="Check More" class="btn btn-default btn-lg">
+                                        <f:param name="selectedCity" value="Ho Chi Minh" />
+                                    </h:link>
+                                </h2>
+                                <div class="row">
+
+                                    <c:forEach items="#{storeController.getCities()}" var="city" varStatus="index">
+                                        <div class="col-sm-6">
+                                            <div class="store">
+                                                <h3>#{city}</h3>
+                                                <ul class="list-unstyled">
+                                                    <c:forEach items="#{storeController.getStores()}" var="store">
+                                                        <c:if test="#{city.equals(store.city)}">
+                                                            <li>#{store.storeName}, #{store.storeAddress}</li>
+                                                            </c:if>
+                                                        </c:forEach>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <c:if test="#{(index.index+1)%2 == 0}">
+                                            <div class="row"></div>
+                                        </c:if>
+                                    </c:forEach>                                        
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>-->
+
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+
