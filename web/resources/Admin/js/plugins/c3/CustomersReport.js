@@ -13,7 +13,7 @@ $(document).ready(function () {
         data: {
             columns: [income],
             colors: {
-                Customers: '#1ab394'
+                Customers: '#00e4d0'
             },
             type: 'bar',
             labels: {

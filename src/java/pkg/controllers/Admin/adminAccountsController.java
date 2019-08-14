@@ -123,6 +123,12 @@ public class adminAccountsController implements Serializable {
         return "accountsView";
     }
     
+    public String updateProfile() {
+        
+        this.adminsFacade.edit(this.currentAdmin);
+        return "adminProfile";
+    }
+    
 
     
     public String changePassword() {

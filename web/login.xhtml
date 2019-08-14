@@ -13,9 +13,9 @@
         <h:outputStylesheet library = "Admin" name = "css/style.css" />
     </h:head>
     <h:body class="gray-bg">
+        <h3 class="logo-name adminlogo">FashionMan</h3>
         <div class="middle-box text-center loginscreen animated fadeInDown">
-            <h3 class="logo-name"><span id="logo1">Fashion</span><span id="logo2">Man</span></h3>
-            <h3>Welcome to Admin's pages</h3>
+            
             <h:form class="m-t" id="loginForm">
                 <div class="form-group">
                     <h:inputText value="#{adminAccountsController.email}" class="form-control" required="true" requiredMessage="Email can not be blank." a:placeholder="Username" validatorMessage="Email is invalid">

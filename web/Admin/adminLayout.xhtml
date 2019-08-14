@@ -141,17 +141,7 @@
                                 </ul>
                             </li>  
 
-                            <li class='#{session.getAttribute("currentPage").equals("storesAdmin")?"active":""}'>
-                                <a><i class="fa fa-bank"></i> <span class="nav-label">Stores</span> <span class="fa arrow"></span></a>
-                                <ul class="nav nav-second-level collapse">
-                                    <li class='#{session.getAttribute("currentPageChild").equals("storesView")?"active":""}'>
-                                        <h:link outcome="storesView" value="View"/>
-                                    </li>
-                                    <li class='#{session.getAttribute("currentPageChild").equals("storesCreate")?"active":""}'>
-                                        <h:commandLink action="#{adminStoresController.toCreate()}" value="Create"/>
-                                    </li>
-                                </ul>
-                            </li>
+                           
 
                             <li class="special_link">
                                 <h:commandLink action="#{adminAccountsController.toProfile()}">

@@ -3,7 +3,7 @@ $(document).ready(function() {
         return;
     
     var numOfCats = Number($('#numOfCats').val());
-    var colorsSource = ['#FF5733', '#FFBD33', '#75FF33', '#33FFBD', '#5733FF', '#BD33FF', '#200B06'];
+    var colorsSource = ['#00e4d0', '#5983e8', '#165b55', '#9ed336', '#802510', '#ff40aa', '#71ba4c'];
     var dataSource = [];
     
     for(var i = 1; i <= numOfCats; i++)

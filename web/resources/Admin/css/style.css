@@ -7,6 +7,12 @@
  *
 */
 
+.adminlogo{
+    background: linear-gradient(to right, #30CFD0 0%, #330867 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
 h1,
 h2,
 h3,
@@ -177,9 +183,14 @@ h5 {
 .nav.navbar-top-links .dropdown-alerts a {
   font-size: 12px;
 }
+.nav-header a strong{
+        font-size: 16px;
+    background: -webkit-linear-gradient(#30CFD0 , #330867 );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
 .nav-header {
   padding: 33px 25px;
-  background-color: #ffffff;
 }
 .pace-done .nav-header {
   transition: all 0.4s;
@@ -1648,6 +1659,7 @@ table.dataTable thead .sorting_desc_disabled {
 }
 .dataTables_wrapper {
   padding-bottom: 30px;
+  margin-top: 22px;
 }
 .dataTables_length {
   float: left;
@@ -4038,7 +4050,7 @@ table.table-mail tr td {
 /* BACKGROUNDS */
 .gray-bg,
 .bg-muted {
-  background-color: #f3f3f4;
+  background-color: #fafbfc;
 }
 .white-bg {
   background-color: #ffffff;
@@ -4075,8 +4087,8 @@ table.table-mail tr td {
   border-color: #00ce68;
 }
 .panel-primary > .panel-heading {
-  background-color: #00ce68;
-  border-color: #00ce68;
+  background-color: #00e4d0;
+  border-color: #00e4d0;
 }
 .panel-success {
   border-color: #1c84c6;
@@ -4722,6 +4734,7 @@ body.mini-navbar.fixed-sidebar .logo-element {
   color: #E87169;
   font-size: 100px;
   font-weight: 800;
+  text-align: center;
   letter-spacing: -10px;
   margin-bottom: 0;
   transition:all 0.3s ease-in;
@@ -8786,3 +8799,5 @@ img.hover-shadow {
 .hover-shadow:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
 }
+
+

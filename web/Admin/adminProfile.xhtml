@@ -25,21 +25,7 @@
                         <article class="account-content">
 
                             <div class="row">
-                                <div class="col-md-6">
-                                    <div class="account-profile-top">
-                                        <div><h:graphicImage name="#{adminAccountsController.currentAdmin.avatar}" alt="#{adminAccountsController.currentAdmin.avatar}" width="80" height="80" id="avatar"/></div>
-                                        <div>
-                                            <h3>#{adminAccountsController.currentAdmin.fullName}
-                                                <small>#{adminAccountsController.currentAdmin.email}</small>
-                                                <small>#{adminAccountsController.currentAdmin.adminRole}</small>
-                                            </h3>
-                                        </div>
-                                        <div class="button">                            
-                                            <a href="" class="btn btn-primary" id="changeAvatar">Change Avatar</a><br/>
-                                            <h:message for="chooseAvatarFile" class="alert-danger"/>                                                  
-                                        </div>
-                                    </div>
-
+                                <div class="col-md-6">                              
 
                                     <h:form class="form-horizontal" enctype="multipart/form-data" id="profileForm">
                                         <h:inputFile id="chooseAvatarFile" value="#{adminAccountsController.avatar}" style="opacity: 0; position: absolute; top: 0; left: 0; width: 0; height: 0;">
